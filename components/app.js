@@ -129,3 +129,5 @@ function createShape() {
     setTimeout(()=>{shape.remove()},30000);
 }
 setInterval(createShape,800);
+
+document.getElementById("year").textContent = new Date().getFullYear();
