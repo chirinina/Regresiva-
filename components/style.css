@@ -1,0 +1,146 @@
+        :root {
+            --primary-gradient: radial-gradient(circle at center, #030018 0%, #000000 100%);
+            --accent-color: #b3ff00;
+            --text-glow: 0 0 20px rgb(255, 238, 0);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+            background: var(--primary-gradient);
+            transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+            height: 100vh;
+        }
+
+        /* Scanlines efecto TV */
+        body::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 2;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+        }
+
+        .font-syncopate { font-family: 'Syncopate', sans-serif; }
+
+        /* Animación de los círculos tipo radar */
+        .circle-pulse {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            position: absolute;
+            animation: pulse-ring 6s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { opacity: 0.3; border-color: var(--accent-color); }
+            100% { transform: scale(1.8); opacity: 0; }
+        }
+
+        /* Texto con máscara de brillo */
+        .shiny-text {
+            background: linear-gradient(120deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 70%);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 5s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* Panel de configuración */
+        #config-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 20px 0 50px rgba(0,0,0,0.5);
+            transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        
+        .hidden-panel { transform: translateX(-100%); }
+
+        .timer-container {
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -2px;
+        }
+
+        /* Floating glass effect */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        /* Movimiento suave de abajo hacia arriba */
+.logo-float {
+    animation: floatUpDown 6s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+    0% {
+        transform: translateY(20px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+/* Partículas flotantes */
+.floating-shapes{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:1;
+    pointer-events:none;
+}
+
+.shape{
+    position:absolute;
+    opacity:0.15;
+    animation: floatShape linear infinite;
+}
+
+.shape.circle{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--accent-color);
+}
+
+.shape.line{
+    width:2px;
+    height:60px;
+    background:var(--accent-color);
+}
+
+.shape.triangle{
+    width:0;
+    height:0;
+    border-left:6px solid transparent;
+    border-right:6px solid transparent;
+    border-bottom:12px solid var(--accent-color);
+}
+
+@keyframes floatShape{
+    0%{
+        transform:translateY(100vh) rotate(0deg);
+        opacity:0;
+    }
+    20%{
+        opacity:0.2;
+    }
+    100%{
+        transform:translateY(-10vh) rotate(360deg);
+        opacity:0;
+    }
+}
