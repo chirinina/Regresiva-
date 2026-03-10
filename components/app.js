@@ -76,18 +76,18 @@
         function toggleAudio() {
             if (audio.paused) {
                 audio.play();
-                audioBtn.innerHTML = `<span>⏸</span> PAUSAR MÚSICA`;
+                audioBtn.innerHTML = `<span>⏸</span> Pausar Sonido`;
                 audioBtn.classList.replace('text-green-500', 'text-red-500');
                 audioBtn.classList.replace('border-green-500', 'border-red-500');
             } else {
                 audio.pause();
-                audioBtn.innerHTML = `<span>▶</span> REPRODUCIR MÚSICA`;
+                audioBtn.innerHTML = `<span>▶</span> Sonido`;
                 audioBtn.classList.replace('text-red-500', 'text-green-500');
                 audioBtn.classList.replace('border-red-500', 'border-green-500');
             }
         }
 
-        // Efecto Parallax suave
+
         document.addEventListener('mousemove', (e) => {
             const x = (e.clientX - window.innerWidth / 2) * 0.01;
             const y = (e.clientY - window.innerHeight / 2) * 0.01;
@@ -108,7 +108,6 @@ function toggleFullscreen() {
     }
 }
 
-// Generador de partículas flotantes
 const shapesContainer = document.getElementById("floating-shapes");
 
 function createShape() {
