@@ -1,136 +1,309 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iniciamoss</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="components/style.css">
-</head>
-<body class="flex flex-col items-center justify-center relative">
-<div class="floating-shapes" id="floating-shapes"></div>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&family=Syncopate:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="components/style.css" />
+  </head>
+  <body class="flex flex-col items-center justify-center relative">
+    <div class="floating-shapes" id="floating-shapes"></div>
 
-    <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div class="circle-pulse w-[400px] h-[400px]" style="animation-delay: 0s"></div>
-        <div class="circle-pulse w-[600px] h-[600px]" style="animation-delay: 2s"></div>
-        <div class="circle-pulse w-[900px] h-[900px]" style="animation-delay: 4s"></div>
+    <div
+      class="absolute inset-0 flex items-center justify-center pointer-events-none"
+    >
+      <div
+        class="circle-pulse w-[400px] h-[400px]"
+        style="animation-delay: 0s"
+      ></div>
+      <div
+        class="circle-pulse w-[600px] h-[600px]"
+        style="animation-delay: 2s"
+      ></div>
+      <div
+        class="circle-pulse w-[900px] h-[900px]"
+        style="animation-delay: 4s"
+      ></div>
     </div>
-    <div class="absolute top-12 left-12 z-20 animate__animated animate__fadeInDown">
-        <img id="current-logo" src="https://moodle.esam.edu.bo/pluginfile.php/1/theme_moove/logo/1773070248/ICONO%20ESAM%20VERTICAL%20%282%29%20%281%29%20%281%29.png" alt="Logo" class="h-16 w-auto opacity-90 logo-float">
+    <div
+      class="absolute top-12 left-12 z-20 animate__animated animate__fadeInDown"
+    >
+      <img
+        id="current-logo"
+        src="https://moodle.esam.edu.bo/pluginfile.php/1/theme_moove/logo/1773070248/ICONO%20ESAM%20VERTICAL%20%282%29%20%281%29%20%281%29.png"
+        alt="Logo"
+        class="h-16 w-auto opacity-90 logo-float"
+      />
     </div>
     <div class="z-10 text-center">
-        <h2 id="msg-top" class="font-syncopate text-xl md:text-2xl font-light tracking-[0.5em] uppercase mb-4 opacity-70 animate__animated animate__fadeIn">
-            En breve
-        </h2>
-        
-        <h1 class="text-7xl md:text-[10rem] font-black uppercase tracking-tighter italic leading-none animate__animated animate__zoomIn">
-            <span class="shiny-text">COMENZAMOS</span>
-        </h1>
+      <h2
+        id="msg-top"
+        class="font-syncopate text-xl md:text-2xl font-light tracking-[0.5em] uppercase mb-4 opacity-70 animate__animated animate__fadeIn"
+      >
+        En breve
+      </h2>
 
-        <div id="timer-wrapper" class="mt-8 overflow-hidden transition-all duration-700 max-h-0 opacity-0">
-            <div class="glass-card px-8 py-4 inline-block">
-                <p class="text-xs uppercase tracking-[0.3em] mb-2 text-white/50">Iniciamos en</p>
-                <div id="timer" class="timer-container text-5xl md:text-7xl font-bold font-syncopate">00:00</div>
-            </div>
+      <h1
+        class="text-7xl md:text-[10rem] font-black uppercase tracking-tighter italic leading-none animate__animated animate__zoomIn"
+      >
+        <span class="shiny-text">COMENZAMOS</span>
+      </h1>
+
+      <div
+        id="timer-wrapper"
+        class="mt-8 overflow-hidden transition-all duration-700 max-h-0 opacity-0"
+      >
+        <div class="glass-card px-8 py-4 inline-block">
+          <p class="text-xs uppercase tracking-[0.3em] mb-2 text-white/50">
+            Iniciamos en
+          </p>
+          <div
+            id="timer"
+            class="timer-container text-5xl md:text-7xl font-bold font-syncopate"
+          >
+            00:00
+          </div>
         </div>
+      </div>
 
-        <div id="accent-line" class="h-1.5 w-96 bg-yellow-400 mx-auto mt-10 rounded-full shadow-[0_0_15px_#facc15] animate-pulse"></div>
+      <div
+        id="accent-line"
+        class="h-1.5 w-96 bg-yellow-400 mx-auto mt-10 rounded-full shadow-[0_0_15px_#facc15] animate-pulse"
+      ></div>
     </div>
 
-
-<button onclick="toggleFullscreen()" 
-class="absolute top-8 right-8 z-30 opacity-60 hover:opacity-100 transition-all">
-
-<svg xmlns="http://www.w3.org/2000/svg" 
-width="34" height="34" viewBox="0 0 24 24" 
-fill="none" stroke="currentColor" stroke-width="2"
-stroke-linecap="round" stroke-linejoin="round">
-
-<path d="M8 3H5a2 2 0 0 0-2 2v3"/>
-<path d="M16 3h3a2 2 0 0 1 2 2v3"/>
-<path d="M21 16v3a2 2 0 0 1-2 2h-3"/>
-<path d="M3 16v3a2 2 0 0 0 2 2h3"/>
-
-</svg>
-
-</button>
+    <button
+      onclick="toggleFullscreen()"
+      class="absolute top-8 right-8 z-30 opacity-60 hover:opacity-100 transition-all"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="34"
+        height="34"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M8 3H5a2 2 0 0 0-2 2v3" />
+        <path d="M16 3h3a2 2 0 0 1 2 2v3" />
+        <path d="M21 16v3a2 2 0 0 1-2 2h-3" />
+        <path d="M3 16v3a2 2 0 0 0 2 2h3" />
+      </svg>
+    </button>
 
     <!-- PANEL DE CONTROL LATERAL -->
-    <div id="config-panel" class="absolute left-0 top-0 h-full p-8 z-50 w-80 hidden-panel border-r border-white/10 text-sm">
-        <div class="flex justify-between items-center mb-8">
-            <h3 class="font-bold text-xl text-yellow-400 tracking-tighter uppercase">Panel</h3>
-            <button onclick="togglePanel()" class="text-white/30 hover:text-white">✕</button>
-        </div>
-        
-        <!-- PALETA DE COLORES (TEMAS) -->
-        <div class="mb-8">
-            <p class="text-white/60 mb-4 uppercase text-[10px] tracking-widest font-bold">Combinacion de Colores</p>
-            <div class="grid grid-cols-2 gap-3">
-                <button onclick="setTheme('cyber')" class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-orange-900 to-black hover:scale-105 transition-transform">Cyber</button>
-                <button onclick="setTheme('ocean')" class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-blue-500 to-black hover:scale-105 transition-transform">Ocean</button>
-                <button onclick="setTheme('lava')" class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-orange-600 to-black hover:scale-105 transition-transform">Lava</button>
-                <button onclick="setTheme('emerald')" class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-emerald-900 to-black hover:scale-105 transition-transform">Emerald</button>
-                <button onclick="setTheme('luxury')" class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-gray-800 to-black hover:scale-105 transition-transform">Luxury Gold</button>
-                <button onclick="setTheme('nebula')" class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-black-700 to-black-600 hover:scale-105 transition-transform">Nebula</button>
-            </div>
-        </div>
+    <div
+      id="config-panel"
+      class="absolute left-0 top-0 h-full p-8 z-50 w-80 hidden-panel border-r border-white/10 text-sm"
+    >
+      <div class="flex justify-between items-center mb-8">
+        <h3
+          class="font-bold text-xl text-yellow-400 tracking-tighter uppercase"
+        >
+          Panel
+        </h3>
+        <button onclick="togglePanel()" class="text-white/30 hover:text-white">
+          ✕
+        </button>
+      </div>
 
-        <!-- CONTROL DE TIEMPO -->
-        <div class="mb-8">
-            <p class="text-white/60 mb-4 uppercase text-[10px] tracking-widest font-bold">Temporizador de Cuenta Regresiva</p>
-            <div class="flex items-center gap-2 mb-4">
-                <input type="number" id="input-minutes" placeholder="Min" class="w-full bg-white/5 border border-white/10 p-3 rounded-lg focus:outline-none focus:border-yellow-400">
-                <button onclick="startCountdown()" class="bg-yellow-400 text-black font-bold px-4 py-3 rounded-lg hover:bg-yellow-300 transition-colors">INICIAR</button>
-            </div>
-            <button onclick="hideTimer()" class="w-full text-[10px] text-white/40 hover:text-white underline tracking-widest">DESACTIVAR CONTADOR</button>
+      <!-- PALETA DE COLORES (TEMAS) -->
+      <div class="mb-8">
+        <p
+          class="text-white/60 mb-4 uppercase text-[10px] tracking-widest font-bold"
+        >
+          Combinacion de Colores
+        </p>
+        <div class="grid grid-cols-2 gap-3">
+          <button
+            onclick="setTheme('cyber')"
+            class="h-12 rounded-lg border border-white/10 bg-white text-black from-orange-900 to-black hover:scale-105 transition-transform"
+          >
+            Cyber
+          </button>
+          <button
+            onclick="setTheme('ocean')"
+            class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-blue-500 to-black hover:scale-105 transition-transform"
+          >
+            Ocean
+          </button>
+          <button
+            onclick="setTheme('lava')"
+            class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-orange-600 to-black hover:scale-105 transition-transform"
+          >
+            Lava
+          </button>
+          <button
+            onclick="setTheme('emerald')"
+            class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-emerald-900 to-black hover:scale-105 transition-transform"
+          >
+            Emerald
+          </button>
+          <button
+            onclick="setTheme('luxury')"
+            class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-gray-800 to-black hover:scale-105 transition-transform"
+          >
+            Luxury Gold
+          </button>
+          <button
+            onclick="setTheme('nebula')"
+            class="h-12 rounded-lg border border-white/10 bg-gradient-to-br from-black-700 to-black-600 hover:scale-105 transition-transform"
+          >
+            Nebula
+          </button>
         </div>
+      </div>
 
-        <!-- LOGOS -->
-        <div class="mb-8">
-            <p class="text-white/60 mb-4 uppercase text-[10px] tracking-widest font-bold">Unidad</p>
-            <div class="flex gap-2">
-                <button onclick="changeLogo(1)" class="flex-1 bg-white/5 p-2 rounded border border-white/10 hover:border-yellow-400 transition">Esam</button>
-                <button onclick="changeLogo(2)" class="flex-1 bg-white/5 p-2 rounded border border-white/10 hover:border-yellow-400 transition">Upi</button>
-            </div>
+      <!-- CONTROL DE TIEMPO -->
+      <div class="mb-8">
+        <p class="text-white/60 mb-4 text-[10px] tracking-widest font-bold">
+          Temporizador de Cuenta Regresiva
+        </p>
+        <div class="flex items-center gap-2 mb-4">
+          <input
+            type="number"
+            id="input-minutes"
+            placeholder="Min"
+            class="w-full bg-white/5 border border-white/10 p-3 rounded-lg focus:outline-none focus:border-yellow-400"
+          />
+          <button
+            onclick="startCountdown()"
+            class="bg-yellow-400 text-black font-bold px-4 py-3 rounded-lg hover:bg-yellow-300 transition-colors"
+          >
+            INICIAR
+          </button>
         </div>
-        
-        <div class="mt-8">
-            <p class="text-white/60 mb-4 uppercase text-[10px] tracking-widest font-bold">Color de Texto</p>
-            <div class="grid grid-cols-4 gap-2">
-                <button onclick="setTextColor('#ffffff')" class="h-10 rounded bg-white border"></button>
-                <button onclick="setTextColor('#facc15')" class="h-10 rounded bg-yellow-400"></button>
-                <button onclick="setTextColor('#00d4ff')" class="h-10 rounded bg-cyan-400"></button>
-                <button onclick="setTextColor('#02093b')" class="h-10 rounded bg-blue-900"></button>
-                <button onclick="setTextColor('#34d399')" class="h-10 rounded bg-emerald-400"></button>
-                <button onclick="setTextColor('#000103')" class="h-10 rounded bg-black"></button>
-                <button onclick="setTextColor('#f97316')" class="h-10 rounded bg-orange-500"></button>
-                <button onclick="setTextColor('#ffffff')" class="h-10 rounded bg-gray-300"></button>
-            </div>
+        <button
+          onclick="hideTimer()"
+          class="w-full text-[10px] text-white/40 hover:text-white underline tracking-widest"
+        >
+          DESACTIVAR CONTADOR
+        </button>
+      </div>
+
+      <!-- LOGOS -->
+      <div class="mb-8">
+        <p class="text-white/60 mb-4 text-[10px] tracking-widest font-bold">
+          Unidad
+        </p>
+        <div class="flex gap-2">
+          <button
+            onclick="changeLogo(1)"
+            class="flex-1 bg-white/5 p-2 rounded border border-white/10 hover:border-yellow-400 transition"
+          >
+            Esam
+          </button>
+          <button
+            onclick="changeLogo(2)"
+            class="flex-1 bg-white/5 p-2 rounded border border-white/10 hover:border-yellow-400 transition"
+          >
+            Upi
+          </button>
         </div>
-        
-        <div>
-            <p class="text-white/60 mb-4 uppercase text-[10px] tracking-widest font-bold">Audio Ambiente</p>
-            <button id="audio-btn" onclick="toggleAudio()" class="w-full border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-black font-bold py-3 rounded-full transition-all flex items-center justify-center gap-2">
-                <span id="audio-icon">▶</span> Activar Sonido
-            </button>
+      </div>
+
+      <div class="mt-8">
+        <p class="text-white/60 mb-4 text-[10px] tracking-widest font-bold">
+          Color de Texto
+        </p>
+        <div class="grid grid-cols-4 gap-2">
+          <button
+            onclick="setTextColor('#ffffff')"
+            class="h-10 rounded bg-white border"
+          ></button>
+          <button
+            onclick="setTextColor('#facc15')"
+            class="h-10 rounded bg-yellow-400"
+          ></button>
+          <button
+            onclick="setTextColor('#00d4ff')"
+            class="h-10 rounded bg-cyan-400"
+          ></button>
+          <button
+            onclick="setTextColor('#02093b')"
+            class="h-10 rounded bg-blue-900"
+          ></button>
+          <button
+            onclick="setTextColor('#34d399')"
+            class="h-10 rounded bg-emerald-400"
+          ></button>
+          <button
+            onclick="setTextColor('#000103')"
+            class="h-10 rounded bg-black"
+          ></button>
+          <button
+            onclick="setTextColor('#f97316')"
+            class="h-10 rounded bg-orange-500"
+          ></button>
+          <button
+            onclick="setTextColor('#ffffff')"
+            class="h-10 rounded bg-gray-300"
+          ></button>
         </div>
+      </div>
+
+      <div>
+        <p class="text-white/60 mb-4 text-[10px] tracking-widest font-bold">
+          Audio Ambiente
+        </p>
+        <button
+          id="audio-btn"
+          onclick="toggleAudio()"
+          class="w-full border-2 border-green-500 text-green-500 hover:bg-green-500 hover:text-black font-bold py-3 rounded-full transition-all flex items-center justify-center gap-2"
+        >
+          <span id="audio-icon">▶</span> Activar Sonido
+        </button>
+      </div>
     </div>
 
     <!-- BOTÓN DE AJUSTES -->
-    <button onclick="togglePanel()" class="absolute bottom-8 left-8 opacity-20 hover:opacity-100 transition-all z-30">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="animate-spin-slow"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+    <button
+      onclick="togglePanel()"
+      class="absolute bottom-8 left-8 opacity-20 hover:opacity-100 transition-all z-30"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="28"
+        height="28"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="animate-spin-slow"
+      >
+        <path
+          d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"
+        />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
     </button>
 
-    <div class="absolute bottom-8 right-8 text-[10px] uppercase tracking-[0.4em] opacity-20">
-        Ing Efrain Chiri <span id="year"></span>
+    <div
+      class="absolute bottom-8 right-8 text-[10px] uppercase tracking-[0.4em] opacity-20"
+    >
+      Ing Efrain Chiri <span id="year"></span>
     </div>
 
     <audio id="bg-audio" loop>
-        <source src="/components/audio/Audio1.mp3" type="audio/mpeg">
+      <source
+        src="/components/audio/Audio 2 Presentacion.mp3"
+        type="audio/mpeg"
+      />
     </audio>
     <script src="components/app.js"></script>
-    
-</body>
+  </body>
 </html>
